@@ -1,0 +1,30 @@
+Infotact Internship Project-1
+N-Map findings and mitigation strategies
+Step 1:
+Open VM and create tools of both Kali Linux and Metasploit by downloading the required installer from the web browser.
+
+Step 2:
+Nmap for scanning vulnerabilities for scripts (ensure nmap is installed):
+-ifconfig
+(Ensure network of both metasploit and KLinux are same)
+List out the scripts using the below commands
+-ls /usr/share/nmap/scripts/
+-ls /usr/share/nmap/scripts/ | grep smb
+
+Update the database of the scripts
+-sudo nmap --script-updatedb
+
+Pick a script and scan for the vulnerabilities:
+-sudo nmap --script smb-vuln-ms17-010.nse <target ip(metaspl)>
+-sudo nmap -sV --script vulners target ip.
+
+-- After seening the vulnerability results of CVE scores:
+Port scanning for the target machine without pinging:
+-sudo nmap -Pn target ip.
+
+Step 3:
+Installation of OpenVAS:
+-sudo apt install openvas(gvm)
+-sudo gvm-setup
+ Fixes for the system after scanning and CVE scores:
+ -sudo apt update && sudo apt upgrade –y
